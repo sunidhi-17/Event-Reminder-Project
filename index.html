@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EventFlow - Smart Event Management</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Poppins:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Enhanced Interactive Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-background"></div>
+        <div class="nav-glow"></div>
+        <div class="nav-container">
+            <div class="nav-logo">
+                <div class="logo-icon">
+                    <div class="logo-rings">
+                        <div class="ring ring-1"></div>
+                        <div class="ring ring-2"></div>
+                        <div class="ring ring-3"></div>
+                    </div>
+                    <i class="fas fa-calendar-stars"></i>
+                </div>
+                <div class="logo-text">
+                    <span class="logo-main">EventFlow</span>
+                    <span class="logo-sub">Smart Events</span>
+                </div>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="#home" class="nav-link active" data-text="Home">
+                    <span class="nav-icon"><i class="fas fa-home"></i></span>
+                    <span class="nav-text">Home</span>
+                    <div class="nav-underline"></div>
+                </a>
+                <a href="#features" class="nav-link" data-text="Features">
+                    <span class="nav-icon"><i class="fas fa-star"></i></span>
+                    <span class="nav-text">Features</span>
+                    <div class="nav-underline"></div>
+                </a>
+                <a href="#dashboard" class="nav-link" data-text="Dashboard">
+                    <span class="nav-icon"><i class="fas fa-tachometer-alt"></i></span>
+                    <span class="nav-text">Dashboard</span>
+                    <div class="nav-underline"></div>
+                </a>
+                <a href="#about" class="nav-link" data-text="About">
+                    <span class="nav-icon"><i class="fas fa-info-circle"></i></span>
+                    <span class="nav-text">About</span>
+                    <div class="nav-underline"></div>
+                </a>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="toggle-line"></span>
+                <span class="toggle-line"></span>
+                <span class="toggle-line"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Enhanced Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-bg">
+            <div class="hero-overlay"></div>
+            <div class="hero-particles" id="particles"></div>
+            <div class="hero-waves">
+                <div class="wave wave-1"></div>
+                <div class="wave wave-2"></div>
+                <div class="wave wave-3"></div>
+            </div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-text" data-aos="fade-up" data-aos-delay="200">
+                <h1 class="hero-title">
+                    <span class="title-line">Never Miss What</span>
+                    <span class="title-highlight">Matters Most</span>
+                </h1>
+                <p class="hero-description">Transform the way you manage events with our intelligent reminder system. Beautiful, powerful, and effortlessly simple.</p>
+                <div class="hero-buttons">
+                    <button class="btn-primary magical-btn" onclick="scrollToSection('dashboard')">
+                        <span class="btn-content">
+                            <span class="btn-text">Get Started</span>
+                            <span class="btn-icon"><i class="fas fa-rocket"></i></span>
+                        </span>
+                        <div class="btn-glow"></div>
+                    </button>
+                    <button class="btn-secondary glass-btn" onclick="playDemo()">
+                        <span class="btn-content">
+                            <span class="btn-icon"><i class="fas fa-play"></i></span>
+                            <span class="btn-text">Watch Demo</span>
+                        </span>
+                    </button>
+                </div>
+                <div class="hero-stats" data-aos="fade-up" data-aos-delay="600">
+                    <div class="stat-item">
+                        <span class="stat-number">10K+</span>
+                        <span class="stat-label">Happy Users</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">50K+</span>
+                        <span class="stat-label">Events Managed</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">99%</span>
+                        <span class="stat-label">Uptime</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual" data-aos="fade-left" data-aos-delay="400">
+                <div class="phone-mockup">
+                    <div class="phone-reflection"></div>
+                    <div class="phone-screen">
+                        <div class="mock-header">
+                            <div class="mock-time">9:41 AM</div>
+                            <div class="mock-battery">
+                                <i class="fas fa-battery-full"></i>
+                            </div>
+                        </div>
+                        <div class="mock-events">
+                            <div class="mock-event active">
+                                <div class="mock-time">Today, 2:00 PM</div>
+                                <div class="mock-title">Team Meeting</div>
+                                <div class="mock-status">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Ready</span>
+                                </div>
+                            </div>
+                            <div class="mock-event">
+                                <div class="mock-time">Tomorrow, 10:00 AM</div>
+                                <div class="mock-title">Client Call</div>
+                                <div class="mock-status pending">
+                                    <i class="fas fa-clock"></i>
+                                    <span>Scheduled</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator" onclick="scrollToSection('features')">
+            <div class="scroll-arrow">
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <span class="scroll-text">Discover More</span>
+        </div>
+    </section>
+
+    <!-- Enhanced Features Section -->
+    <section class="features" id="features">
+        <div class="features-bg">
+            <div class="features-overlay"></div>
+            <div class="features-particles"></div>
+            <div class="geometric-shapes">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div>
+                <div class="shape shape-4"></div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">
+                    <span class="title-accent">Powerful Features</span>
+                    <span class="title-main">for Modern Life</span>
+                </h2>
+                <p class="section-description">Everything you need to stay organized and never miss important moments</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-glow"></div>
+                    <div class="feature-icon smart">
+                        <div class="icon-bg"></div>
+                        <i class="fas fa-brain"></i>
+                        <div class="icon-particles">
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                            <div class="particle"></div>
+                        </div>
+                    </div>
+                    <h3 class="feature-title">Smart Reminders</h3>
+                    <p class="feature-description">AI-powered notifications that learn your patterns and remind you at the perfect moment</p>
+                    <div class="feature-hover-effect"></div>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-glow"></div>
+                    <div class="feature-icon sync">
+                        <div class="icon-bg"></div>
+                        <i class="fas fa-sync-alt"></i>
+                        <div class="sync-rings">
+                            <div class="sync-ring"></div>
+                            <div class="sync-ring"></div>
+                        </div>
+                    </div>
+                    <h3 class="feature-title">Real-time Sync</h3>
+                    <p class="feature-description">Access your events anywhere, anytime with instant synchronization across all devices</p>
+                    <div class="feature-hover-effect"></div>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-glow"></div>
+                    <div class="feature-icon analytics">
+                        <div class="icon-bg"></div>
+                        <i class="fas fa-chart-line"></i>
+                        <div class="chart-animation">
+                            <div class="chart-bar"></div>
+                            <div class="chart-bar"></div>
+                            <div class="chart-bar"></div>
+                        </div>
+                    </div>
+                    <h3 class="feature-title">Smart Analytics</h3>
+                    <p class="feature-description">Get insights into your productivity patterns with beautiful charts and statistics</p>
+                    <div class="feature-hover-effect"></div>
+                </div>
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="feature-glow"></div>
+                    <div class="feature-icon secure">
+                        <div class="icon-bg"></div>
+                        <i class="fas fa-shield-alt"></i>
+                        <div class="shield-glow"></div>
+                    </div>
+                    <h3 class="feature-title">Advanced Security</h3>
+                    <p class="feature-description">Your events are protected with enterprise-grade security and privacy controls</p>
+                    <div class="feature-hover-effect"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Dashboard Section -->
+    <section class="dashboard-section" id="dashboard">
+        <div class="dashboard-bg">
+            <div class="dashboard-overlay"></div>
+            <div class="dashboard-grid">
+                <div class="grid-line"></div>
+                <div class="grid-line"></div>
+                <div class="grid-line"></div>
+                <div class="grid-line"></div>
+            </div>
+            <div class="floating-elements">
+                <div class="float-element element-1"></div>
+                <div class="float-element element-2"></div>
+                <div class="float-element element-3"></div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">
+                    <span class="title-accent">Your Event</span>
+                    <span class="title-main">Command Center</span>
+                </h2>
+                <p class="section-description">Manage all your events with our beautiful and intuitive dashboard</p>
+            </div>
+            
+            <!-- Enhanced Stats Overview -->
+            <div class="stats-overview" data-aos="fade-up" data-aos-delay="200">
+                <div class="stat-card">
+                    <div class="stat-bg"></div>
+                    <div class="stat-icon total">
+                        <i class="fas fa-calendar-check"></i>
+                        <div class="stat-pulse"></div>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="totalEvents" class="stat-number">0</h3>
+                        <p class="stat-label">Total Events</p>
+                    </div>
+                    <div class="stat-chart">
+                        <div class="chart-bar" style="height: 60%"></div>
+                    </div>
+                    <div class="stat-glow"></div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-bg"></div>
+                    <div class="stat-icon completed">
+                        <i class="fas fa-check-double"></i>
+                        <div class="stat-pulse"></div>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="completedEvents" class="stat-number">0</h3>
+                        <p class="stat-label">Completed</p>
+                    </div>
+                    <div class="stat-chart">
+                        <div class="chart-bar" style="height: 75%"></div>
+                    </div>
+                    <div class="stat-glow"></div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-bg"></div>
+                    <div class="stat-icon pending">
+                        <i class="fas fa-hourglass-half"></i>
+                        <div class="stat-pulse"></div>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="pendingEvents" class="stat-number">0</h3>
+                        <p class="stat-label">Pending</p>
+                    </div>
+                    <div class="stat-chart">
+                        <div class="chart-bar" style="height: 45%"></div>
+                    </div>
+                    <div class="stat-glow"></div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-bg"></div>
+                    <div class="stat-icon upcoming">
+                        <i class="fas fa-rocket"></i>
+                        <div class="stat-pulse"></div>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="upcomingEvents" class="stat-number">0</h3>
+                        <p class="stat-label">Upcoming</p>
+                    </div>
+                    <div class="stat-chart">
+                        <div class="chart-bar" style="height: 80%"></div>
+                    </div>
+                    <div class="stat-glow"></div>
+                </div>
+            </div>
+
+            <!-- Enhanced Dashboard Controls -->
+            <div class="dashboard-controls" data-aos="fade-up" data-aos-delay="400">
+                <div class="search-container">
+                    <div class="search-bg"></div>
+                    <div class="search-bar">
+                        <i class="fas fa-search search-icon"></i>
+                        <input type="text" placeholder="Search events..." id="searchInput">
+                        <button class="search-clear" id="searchClear">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="search-glow"></div>
+                </div>
+                <div class="action-buttons">
+                    <button class="btn-icon undo-btn" onclick="undoLastAction()" title="Undo Last Action">
+                        <span class="btn-bg"></span>
+                        <i class="fas fa-undo"></i>
+                        <div class="btn-ripple"></div>
+                    </button>
+                    <button class="btn-icon filter-btn" onclick="toggleFilters()" title="Filter Events">
+                        <span class="btn-bg"></span>
+                        <i class="fas fa-filter"></i>
+                        <div class="btn-ripple"></div>
+                    </button>
+                    <button class="btn-primary add-event-btn magical-btn" onclick="openEventModal()">
+                        <span class="btn-content">
+                            <span class="btn-icon"><i class="fas fa-plus"></i></span>
+                            <span class="btn-text">Add Event</span>
+                        </span>
+                        <div class="btn-glow"></div>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Enhanced Filter Tabs -->
+            <div class="filter-tabs" id="filterTabs" data-aos="fade-up" data-aos-delay="500">
+                <button class="filter-tab active" data-filter="all">
+                    <span class="tab-bg"></span>
+                    <i class="fas fa-list"></i>
+                    <span class="tab-text">All Events</span>
+                    <div class="tab-indicator"></div>
+                </button>
+                <button class="filter-tab" data-filter="pending">
+                    <span class="tab-bg"></span>
+                    <i class="fas fa-clock"></i>
+                    <span class="tab-text">Pending</span>
+                    <div class="tab-indicator"></div>
+                </button>
+                <button class="filter-tab" data-filter="completed">
+                    <span class="tab-bg"></span>
+                    <i class="fas fa-check"></i>
+                    <span class="tab-text">Completed</span>
+                    <div class="tab-indicator"></div>
+                </button>
+                <button class="filter-tab" data-filter="upcoming">
+                    <span class="tab-bg"></span>
+                    <i class="fas fa-calendar-plus"></i>
+                    <span class="tab-text">Upcoming</span>
+                    <div class="tab-indicator"></div>
+                </button>
+            </div>
+
+            <!-- Events Grid -->
+            <div class="events-container" data-aos="fade-up" data-aos-delay="600">
+                <div class="events-grid" id="eventsGrid">
+                    <!-- Events will be loaded here -->
+                </div>
+                <div class="no-events" id="noEvents" style="display: none;">
+                    <div class="no-events-bg"></div>
+                    <div class="no-events-illustration">
+                        <i class="fas fa-calendar-plus"></i>
+                        <div class="illustration-glow"></div>
+                    </div>
+                    <h3 class="no-events-title">No Events Yet</h3>
+                    <p class="no-events-description">Start organizing your life by creating your first event</p>
+                    <button class="btn-primary magical-btn" onclick="openEventModal()">
+                        <span class="btn-content">
+                            <span class="btn-icon"><i class="fas fa-plus"></i></span>
+                            <span class="btn-text">Create First Event</span>
+                        </span>
+                        <div class="btn-glow"></div>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced About Section -->
+    <section class="about" id="about">
+        <div class="about-bg">
+            <div class="about-overlay"></div>
+            <div class="tech-grid">
+                <div class="tech-line"></div>
+                <div class="tech-line"></div>
+                <div class="tech-circle"></div>
+                <div class="tech-circle"></div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text" data-aos="fade-right">
+                    <h2 class="about-title">
+                        <span class="title-accent">Built for the</span>
+                        <span class="title-main">Modern World</span>
+                    </h2>
+                    <p class="about-description">EventFlow combines cutting-edge technology with intuitive design to help you stay on top of what matters most. Whether you're managing personal appointments or coordinating team events, our platform adapts to your needs.</p>
+                    <div class="about-features">
+                        <div class="about-feature">
+                            <div class="feature-icon-small">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <span class="feature-text">Mobile First Design</span>
+                        </div>
+                        <div class="about-feature">
+                            <div class="feature-icon-small">
+                                <i class="fas fa-cloud"></i>
+                            </div>
+                            <span class="feature-text">Cloud Synchronized</span>
+                        </div>
+                        <div class="about-feature">
+                            <div class="feature-icon-small">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                            <span class="feature-text">Privacy Protected</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-visual" data-aos="fade-left">
+                    <div class="feature-showcase">
+                        <div class="showcase-item">
+                            <div class="showcase-bg"></div>
+                            <div class="showcase-icon">
+                                <i class="fas fa-bell"></i>
+                            </div>
+                            <div class="showcase-content">
+                                <h4>Smart Notifications</h4>
+                                <p>Never miss important events</p>
+                            </div>
+                            <div class="showcase-glow"></div>
+                        </div>
+                        <div class="showcase-item">
+                            <div class="showcase-bg"></div>
+                            <div class="showcase-icon">
+                                <i class="fas fa-chart-pie"></i>
+                            </div>
+                            <div class="showcase-content">
+                                <h4>Analytics Dashboard</h4>
+                                <p>Track your productivity</p>
+                            </div>
+                            <div class="showcase-glow"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FIXED Enhanced Event Modal -->
+    <div class="modal-overlay" id="eventModal">
+        <div class="modal-bg"></div>
+        <div class="modal-container">
+            <div class="modal-glow"></div>
+            <div class="modal-header">
+                <h3 class="modal-title">
+                    <i class="fas fa-calendar-plus"></i>
+                    <span>Create New Event</span>
+                </h3>
+                <button class="modal-close" onclick="closeEventModal()">
+                    <span class="close-bg"></span>
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <form class="event-form" id="eventForm">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="eventTitle" class="form-label">
+                            <i class="fas fa-heading"></i>
+                            <span>Event Title</span>
+                        </label>
+                        <div class="input-wrapper">
+                            <input type="text" id="eventTitle" class="form-input" placeholder="What's the event about?" required autocomplete="off">
+                            <div class="input-focus-border"></div>
+                        </div>
+                        <div class="form-feedback"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="eventDate" class="form-label">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Event Date</span>
+                        </label>
+                        <div class="input-wrapper">
+                            <input type="date" id="eventDate" class="form-input date-input" required>
+                            <div class="input-focus-border"></div>
+                        </div>
+                        <div class="form-feedback"></div>
+                    </div>
+                </div>
+                <div class="form-group full-width">
+                    <label for="eventDescription" class="form-label">
+                        <i class="fas fa-align-left"></i>
+                        <span>Description</span>
+                    </label>
+                    <div class="input-wrapper">
+                        <textarea id="eventDescription" class="form-input textarea-input" placeholder="Add more details about your event..." rows="4" required></textarea>
+                        <div class="input-focus-border"></div>
+                    </div>
+                    <div class="form-feedback"></div>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary glass-btn" onclick="closeEventModal()">
+                        <span class="btn-content">
+                            <span class="btn-text">Cancel</span>
+                        </span>
+                    </button>
+                    <button type="submit" class="btn-primary magical-btn">
+                        <span class="btn-content">
+                            <span class="btn-icon"><i class="fas fa-save"></i></span>
+                            <span class="btn-text">Save Event</span>
+                        </span>
+                        <div class="btn-glow"></div>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner">
+            <div class="spinner">
+                <div class="spinner-ring"></div>
+                <div class="spinner-ring"></div>
+                <div class="spinner-ring"></div>
+            </div>
+            <p class="loading-text">Loading your events...</p>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
